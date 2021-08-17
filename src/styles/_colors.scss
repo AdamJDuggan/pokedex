@@ -1,0 +1,32 @@
+$primary: #00d1b2;
+$secondary: #3273dc;
+$light: #f5f5f5;
+$dark: #363636;
+$black: #000;
+$white: #fff;
+$info: #209cee;
+$success: #23d160;
+$warning: #ffd300;
+$danger: #ff3860;
+
+$colors: (
+  primary: #00d1b2,
+  secondary: #3273dc,
+  light: #f5f5f5,
+  dark: #363636,
+  black: #000,
+  white: #fff,
+  info: #209cee,
+  success: #23d160,
+  warning: #ffd300,
+  danger: #ff3860,
+);
+
+@each $colorname, $color in $colors {
+  .bg-#{$colorname} {
+    background: $color;
+  }
+  .text-#{$colorname} {
+    color: $color;
+  }
+}

@@ -1,0 +1,131 @@
+@import "./variables.scss";
+
+$sides: (top, bottom, left, right);
+$length: 20;
+
+@mixin spacing($property) {
+  @for $i from 1 through $length {
+    $value: $i * $spacing;
+    $prefix: str-slice($property, 0, 1);
+
+    .#{$prefix}#{$i} {
+      #{$property}: #{$value} !important;
+    }
+
+    .#{$prefix}v#{$i} {
+      #{$property}-top: #{$value} !important;
+      #{$property}-bottom: #{$value} !important;
+    }
+
+    .#{$prefix}h#{$i} {
+      #{$property}-left: #{$value} !important;
+      #{$property}-right: #{$value} !important;
+    }
+
+    @each $side in $sides {
+      .#{$prefix}#{str-slice($side, 0, 1)}#{$i} {
+        #{$property}-#{$side}: #{$value} !important;
+      }
+    }
+  }
+}
+
+@include spacing("margin");
+@include spacing("padding");
+
+//Child element spacing
+.mh-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.mt-not-first {
+  &:first-child {
+    margin-top: 0 !important;
+  }
+}
+
+.mb-not-last {
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+.ml-not-first {
+  &:first-child {
+    margin-left: 0 !important;
+  }
+}
+
+.mr-not-last {
+  &:last-child {
+    margin-right: 0 !important;
+  }
+}
+
+// Alignment
+.text-left {
+  text-align: left !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.fill-height {
+  height: 100%;
+  overflow: auto;
+}
+
+// Flexbox
+.flex {
+  display: flex;
+}
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+.align-start {
+  align-items: flex-start;
+}
+.align-end {
+  align-items: flex-end;
+}
+.center-content {
+  justify-content: center;
+}
+.space-between-content {
+  justify-content: space-between !important;
+}
+.mr-auto {
+  margin-right: auto;
+}
+.ml-auto {
+  margin-left: auto;
+}
+
+// Display properties
+.block {
+  display: block;
+}
+.inline {
+  display: inline;
+}
+.inline-block {
+  display: inline-block;
+}
+
+// Width
+.w-auto {
+  width: auto;
+}
+// Set max width to
+.w-tablet {
+  max-width: $isTablet !important;
+}
