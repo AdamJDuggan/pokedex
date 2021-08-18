@@ -33,12 +33,18 @@ $length: 20;
 @include spacing("margin");
 @include spacing("padding");
 
-//Child element spacing
 .mh-auto {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+.mr-auto {
+  margin-right: auto;
+}
+.ml-auto {
+  margin-left: auto;
+}
 
+//Child element spacing
 .mt-not-first {
   &:first-child {
     margin-top: 0 !important;
@@ -70,10 +76,7 @@ $length: 20;
 .text-center {
   text-align: center !important;
 }
-.fill-height {
-  height: 100%;
-  overflow: auto;
-}
+
 
 // Flexbox
 .flex {
@@ -103,14 +106,10 @@ $length: 20;
 .space-between-content {
   justify-content: space-between !important;
 }
-.mr-auto {
-  margin-right: auto;
-}
-.ml-auto {
-  margin-left: auto;
-}
 
-// Display properties
+
+
+// Other display properties
 .block {
   display: block;
 }
@@ -121,11 +120,36 @@ $length: 20;
   display: inline-block;
 }
 
+
 // Width
-.w-auto {
-  width: auto;
-}
-// Set max width to
 .w-tablet {
   max-width: $isTablet !important;
+}
+
+// Height
+.height-100vh{
+  height: 100vh;
+}
+
+// Overflow
+.overflow-hidden{
+  overflow: hidden;
+}
+.overflow-auto{
+  overflow: hidden;
+}
+
+// Viewport
+.height-100vh{
+  height: 100vh;
+}
+
+//Sticky
+.sticky-top{
+  position: sticky;
+  top: 0;
+}
+.sticky-bottom{
+  margin-top: auto;
+  bottom: 0;
 }

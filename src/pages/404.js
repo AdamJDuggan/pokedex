@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Item() {
+export default function NotFound() {
     return (
         <div>
-           Item 
+            404 not found
         </div>
     )
 }

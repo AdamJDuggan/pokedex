@@ -1,14 +1,31 @@
-// React 
+// React
+import { graphql } from "gatsby"
 import React from "react"
 // Components
-import Item from "./components/Item"
-// Styles
+import Layout from "../components/Layout"
 
-import "../styles/index.scss"
+export default function List(props) {
+  // const { title, description } = props.data.site.siteMetadata
+  const users = props.data.allRandomUser.edges
+  console.log(users)
 
-
-export default function Home() {
-  return <div className="bg-primary">Hello world!
-    <Item/>
-  </div>
+  // console.log(users)
+  return (
+    <Layout>
+      {/* <h1>{title}</h1>
+      <h3>{description}</h3> */}
+    </Layout>
+  )
 }
+
+export const query = graphql`
+  query PokemonQuery {
+    allRandomUser {
+      edges {
+        node {
+          name
+        }
+      }
+    }
+  }
+`
