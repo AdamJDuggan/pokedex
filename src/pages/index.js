@@ -5,22 +5,28 @@ import React from "react"
 import Layout from "../components/Layout"
 
 export default function List(props) {
-  // const { title, description } = props.data.site.siteMetadata
-  const users = props.data.allRandomUser.edges
-  console.log(users)
+  const { title } = props.data.site.siteMetadata
+  const pokemon = props.data.allPokemon.edges.map(pokemon => pokemon.node)
 
-  // console.log(users)
+  console.log(pokemon)
   return (
     <Layout>
-      {/* <h1>{title}</h1>
-      <h3>{description}</h3> */}
+      <h1>{title}</h1>
+      {pokemon.map(p => (
+        <p>{p.name}</p>
+      ))}
     </Layout>
   )
 }
 
 export const query = graphql`
-  query PokemonQuery {
-    allRandomUser {
+  query query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allPokemon {
       edges {
         node {
           name
